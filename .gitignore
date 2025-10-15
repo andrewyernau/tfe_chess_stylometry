@@ -1,28 +1,42 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
 
-# CRITICAL: Jupyter logs contain sensitive tokens
+# ============================================================================
+# CRITICAL: SEGURIDAD - Jupyter logs contienen tokens sensibles
+# ============================================================================
 jupyter.log
 *.log
 
-# Python virtual environment
+# ============================================================================
+# Python Virtual Environment
+# ============================================================================
 venv/
+env/
+ENV/
 Lib/
 Include/
 Scripts/
 pyvenv.cfg
+pip-selfcheck.json
 
-# Python cache and compiled files
+# ============================================================================
+# Python Cache & Compiled Files
+# ============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
 
+# ============================================================================
 # Jupyter Notebook
-.ipynb_checkpoints
+# ============================================================================
+.ipynb_checkpoints/
 *.ipynb_checkpoints/
+*-checkpoint.ipynb
 
-# Distribution / packaging
+# ============================================================================
+# Distribution / Packaging
+# ============================================================================
 build/
 develop-eggs/
 dist/
@@ -38,15 +52,48 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# IDE
+# ============================================================================
+# Testing & Coverage
+# ============================================================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ============================================================================
+# IDEs & Editors
+# ============================================================================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
+*.sublime-*
 
-# Environment variables
+# ============================================================================
+# Environment Variables
+# ============================================================================
 .env
 .env.local
+.env.*.local
+
+# ============================================================================
+# Project Specific
+# ============================================================================
+# Generated datasets (pueden ser muy grandes)
+labs/dataset/generated/*.png
+labs/dataset/generated/*.jpg
+
+# Model checkpoints (pueden ser muy grandes)
+labs/models/*.pth
+labs/models/*.h5
+labs/models/*.ckpt
+
+# Output files (temporal)
+labs/output/temp/
+labs/output/*.tmp

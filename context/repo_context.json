@@ -4,31 +4,61 @@
     "_files": [
       "jupyter.log",
       "start_jupyter.sh",
-      "ARCHITECT.md",
-      "AGENTS.md",
-      "AGENT_CLI.md",
-      "EJEMPLO_USO.md",
+      "requirements.txt",
       "agent_cli.py",
-      "architecture.md",
       "QUICKSTART.md",
       "agents.py",
       "Makefile",
       "README.md"
     ],
+    "Include": {},
     "labs": {
       "src": {},
       "dataset": {
+        "_files": [
+          "chessgame0001.pgn"
+        ],
         "generated": {},
         "splits": {}
       },
-      "notebooks": {},
+      "notebooks": {
+        "_files": [
+          "chess_cnn_visual_temporal.ipynb",
+          "chess-0000-preview-checkpoint.ipynb"
+        ]
+      },
       "utils": {},
-      "output": {}
+      "output": {
+        "_files": [
+          "cnn_friendly_example.png",
+          "chess_visual_temporal_gray_c2_m15-23.png",
+          "chess_visual_temporal_c2_m15-23.png",
+          "cnn_friendly_board_15_23.png"
+        ]
+      }
     },
     "context": {
       "_files": [
         "repo_context.json"
       ]
+    },
+    "docs": {
+      "_files": [
+        "detection_stylometry.pdf",
+        "websites.md",
+        "chess_cnn_visual_temporal.md",
+        "siamese_neural_networks.md",
+        "architecture.md",
+        "chess_rating_estimation.pdf"
+      ],
+      "agents": {
+        "_files": [
+          "ARCHITECT.md",
+          "AGENTS.md",
+          "AGENT_CLI.md",
+          "README.md"
+        ]
+      }
     }
   },
   "agents": {
@@ -41,7 +71,7 @@
         "repo-analyzer",
         "Mermaid"
       ],
-      "file": "/home/andrewyernau/dev/jupyter/ARCHITECT.md"
+      "file": "/home/andrewyernau/dev/jupyter/docs/agents/ARCHITECT.md"
     }
   },
   "metadata": {
@@ -49,8 +79,12 @@
       "root/agent_cli.py",
       "root/agents.py"
     ],
-    "notebooks": [],
+    "notebooks": [
+      "labs/notebooks/chess_cnn_visual_temporal.ipynb",
+      "labs/notebooks/chess-0000-preview-checkpoint.ipynb"
+    ],
     "key_directories": [
+      "Include",
       "labs",
       "labs/src",
       "labs/dataset",
@@ -59,7 +93,9 @@
       "labs/notebooks",
       "labs/utils",
       "labs/output",
-      "context"
+      "context",
+      "docs",
+      "docs/agents"
     ]
   }
 }
