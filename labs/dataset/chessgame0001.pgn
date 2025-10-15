@@ -1,0 +1,33 @@
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2025.07.15"]
+[Round "-"]
+[White "jenishk17"]
+[Black "yernau"]
+[Result "0-1"]
+[CurrentPosition "8/1pk4p/2p3p1/1p1p4/1R1P1p1b/2P2P2/P1P3P1/4rK2 w - - 3 30"]
+[Timezone "UTC"]
+[ECO "A40"]
+[ECOUrl "https://www.chess.com/openings/Queens-Pawn-Opening-1...c6"]
+[UTCDate "2025.07.15"]
+[UTCTime "08:29:35"]
+[WhiteElo "1369"]
+[BlackElo "1380"]
+[TimeControl "600"]
+[Termination "yernau won by checkmate"]
+[StartTime "08:29:35"]
+[EndDate "2025.07.15"]
+[EndTime "08:40:12"]
+[Link "https://www.chess.com/analysis/game/live/140714010348/analysis?move=57"]
+[WhiteUrl "https://www.chess.com/bundles/web/images/noavatar_l.84a92436.gif"]
+[WhiteCountry "69"]
+[WhiteTitle ""]
+[BlackUrl "https://images.chesscomfiles.com/uploads/v1/user/379113995.59405892.50x50o.dfbf72a29f2f.png"]
+[BlackCountry "163"]
+[BlackTitle ""]
+
+1. d4 c6 2. Nc3 d5 3. Bf4 Nf6 4. e3 Bf5 5. Bd3 Ne4 $6 6. Nf3 e6 $6 7. Ne5 $6 Nxc3
+8. bxc3 Qf6 $2 9. h4 $6 Bd6 $4 10. Bg5 $1 Bxe5 11. Bxf6 Bxf6 12. Bxf5 exf5 13. Qf3 g6
+14. h5 Nd7 15. hxg6 fxg6 16. Qf4 O-O-O 17. O-O Rde8 18. Rab1 Re4 19. Qf3 Nb6 20.
+Rxb6 $6 axb6 21. Rb1 b5 22. Qe2 Rhe8 23. Rb3 $6 Kc7 24. Rb4 $2 f4 25. f3 $4 Rxe3 26.
+Qf2 $6 Re2 27. Kf1 Rxf2+ 28. Kxf2 Bh4+ 29. Kf1 $2 Re1# 0-1
