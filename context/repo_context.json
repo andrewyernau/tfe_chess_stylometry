@@ -2,10 +2,14 @@
   "repo_root": "/home/andrewyernau/dev/jupyter",
   "structure": {
     "_files": [
+      "CHANGELOG.md",
+      "CONTRIBUTING.md",
       "jupyter.log",
       "start_jupyter.sh",
+      "RESUMEN_REORGANIZACION.txt",
       "requirements.txt",
       "agent_cli.py",
+      "ESTRUCTURA.md",
       "QUICKSTART.md",
       "agents.py",
       "Makefile",
