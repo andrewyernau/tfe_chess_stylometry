@@ -1,166 +1,178 @@
-# Agent System - Quick Start Guide
+# Guía de Inicio Rápido
 
-Sistema de comandos para gestionar y ejecutar agentes en el repositorio.
+Guía rápida para comenzar a trabajar en el proyecto Chess Stylometry.
 
-## 🚀 Uso Rápido
+---
 
-### Con Makefile (Recomendado)
+## 🚀 Instalación
+
+### 1. Clonar y configurar entorno
 
 ```bash
-# Ver ayuda
-make help
+# Clonar repositorio
+git clone <repository-url>
+cd jupyter
 
+# Crear entorno virtual
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### 2. Verificar instalación
+
+```bash
+# Comprobar que python-chess está instalado
+python -c "import chess; print(chess.__version__)"
+
+# Comprobar Jupyter
+jupyter --version
+```
+
+---
+
+## 📓 Trabajar con Jupyter
+
+### Opción 1: Script de inicio rápido
+
+```bash
+./start_jupyter.sh
+```
+
+Este script inicia Jupyter y guarda los logs en `jupyter.log` (que no se subirá a Git).
+
+### Opción 2: Inicio manual
+
+```bash
+jupyter notebook
+```
+
+### Notebooks disponibles
+
+- `labs/notebooks/chess_cnn_visual_temporal.ipynb`: Experimentos con CNN y codificaciones visuales
+- `labs/notebooks/chess-0000-preview-checkpoint.ipynb`: Preview inicial
+
+---
+
+## 🤖 Sistema de Agentes
+
+El repositorio incluye un sistema automatizado de agentes para tareas comunes.
+
+### Comandos básicos
+
+```bash
 # Inicializar contexto del repositorio
 make init
 
-# Listar agentes disponibles
+# Ver agentes disponibles
 make list
 
-# Ejecutar un agente específico
+# Ejecutar un agente
 make agent NAME=architect
 ```
 
-### Con Python directamente
+### Agentes disponibles
 
-```bash
-# Inicializar contexto
-python3 agents.py /init
+Ver `docs/agents/` para documentación detallada de cada agente.
 
-# Listar agentes
-python3 agents.py /list
-
-# Ejecutar agente
-python3 agents.py /agent architect
-```
-
-## 📋 Comandos Disponibles
-
-| Comando | Descripción | Ejemplo |
-|---------|-------------|---------|
-| `make init` | Inicializa el contexto del repositorio | `make init` |
-| `make list` | Lista todos los agentes disponibles | `make list` |
-| `make agent NAME=<name>` | Ejecuta un agente específico | `make agent NAME=architect` |
-
-## 🤖 Agentes Actuales
-
-### architect-agent
-- **Descripción**: Responsable de arquitectura del sistema y estructura del código
-- **Modelo**: Opus
-- **Herramientas**: code-search, repo-analyzer, Mermaid
-- **Archivo**: `ARCHITECT.md`
-- **Uso**: `make agent NAME=architect`
-
-## 📁 Archivos del Sistema
-
-```
-jupyter/
-├── agent_cli.py        # Sistema principal de CLI para agentes
-├── agents.py           # Wrapper simplificado para comandos
-├── Makefile           # Comandos make para facilitar uso
-├── AGENT_CLI.md       # Documentación detallada del CLI
-├── AGENTS.md          # Reglas de desarrollo de agentes
-├── ARCHITECT.md       # Definición del agente architect
-└── context/
-    └── repo_context.json  # Contexto generado del repositorio
-```
-
-## 🆕 Crear un Nuevo Agente
-
-1. **Crear archivo de definición** en la raíz del repositorio (ej: `DATA-ANALYST.md`):
-
-```markdown
----
-name: data-analyst-agent
-description: Analiza datasets y genera reportes estadísticos
-model: sonnet
-tools: pandas, numpy, matplotlib
 ---
 
-Este agente se encarga de analizar datos de partidas de ajedrez
-y generar visualizaciones y reportes estadísticos.
-```
+## 📁 Estructura de trabajo
 
-2. **Actualizar el contexto**:
+### Datos
+
 ```bash
-make init
+labs/dataset/
+├── chessgame0001.pgn    # Archivos PGN de partidas
+├── generated/           # Imágenes generadas (codificaciones)
+└── splits/              # Train/Val/Test splits
 ```
 
-3. **Verificar que el agente fue registrado**:
+### Código
+
 ```bash
-make list
+labs/
+├── src/                 # Scripts de producción
+├── utils/               # Utilidades helper
+├── notebooks/           # Jupyter notebooks
+└── output/              # Resultados y visualizaciones
 ```
 
-4. **Ejecutar el nuevo agente**:
+---
+
+## 📖 Documentación
+
+- **README.md**: Visión general del proyecto
+- **docs/architecture.md**: Arquitectura detallada del sistema
+- **docs/agents/**: Sistema de agentes
+- **docs/*.pdf**: Papers de referencia
+
+---
+
+## 🔧 Comandos útiles
+
+### Make commands
+
 ```bash
-make agent NAME=data-analyst
+make help               # Ver ayuda
+make init               # Inicializar contexto de agentes
+make list               # Listar agentes
+make agent NAME=X       # Ejecutar agente X
 ```
 
-## 📊 Archivo de Contexto
+### Python
 
-El comando `make init` genera `context/repo_context.json` con:
-
-- ✅ Estructura completa del repositorio
-- ✅ Lista de agentes disponibles con sus configuraciones
-- ✅ Archivos Python y notebooks detectados
-- ✅ Directorios clave del proyecto
-- ✅ Metadatos del repositorio
-
-Los agentes pueden usar este contexto para entender la estructura del proyecto antes de ejecutar tareas.
-
-## 🔧 Reglas de Desarrollo
-
-Todos los agentes deben seguir las reglas definidas en `AGENTS.md`:
-
-- ✅ snake_case para nombres de variables y funciones
-- ✅ SCREAMING_SNAKE_CASE para constantes
-- ✅ Docstrings (NumPy/Google style) en todas las funciones
-- ✅ Type annotations explícitas
-- ✅ Unit tests obligatorios
-- ✅ Errores con prefijo `[AGENT_NAME]`
-
-## 📖 Documentación Completa
-
-Para información detallada sobre:
-- Formato de archivos de agente
-- Estructura del archivo de contexto
-- Creación de alias
-- Ejemplos avanzados
-
-Ver: **[AGENT_CLI.md](AGENT_CLI.md)**
-
-## ⚡ Ejemplos de Uso
-
-### Inicializar el repositorio
 ```bash
-$ make init
-[AGENT_CLI] Initializing repository context...
-[AGENT_CLI] ✓ Context initialized at: context/repo_context.json
-[AGENT_CLI] ✓ Discovered 1 agent(s):
-  - architect: Responsible for system architecture and codebase structure
-[AGENT_CLI] ✓ Tracked 2 Python file(s)
-[AGENT_CLI] ✓ Tracked 1 notebook(s)
+# Ejecutar scripts (cuando existan)
+python labs/src/parser.py --input labs/dataset/chessgame0001.pgn
+
+# Tests (cuando existan)
+pytest labs/tests/
 ```
 
-### Listar agentes
+---
+
+## ⚠️ Notas importantes
+
+- El archivo `jupyter.log` contiene tokens sensibles y **NO debe subirse a Git**
+- Los checkpoints de Jupyter (`.ipynb_checkpoints/`) están ignorados en Git
+- El entorno virtual `venv/` no se sube al repositorio
+
+---
+
+## 🆘 Solución de problemas
+
+### Jupyter no inicia
+
 ```bash
-$ make list
-[AGENT_CLI] Available agents (1):
+# Reinstalar Jupyter
+pip install --upgrade jupyter notebook
 
-  architect:
-    Name: architect-agent
-    Description: Responsible for system architecture and codebase structure
-    Model: opus
-    Tools: code-search, repo-analyzer, Mermaid
-    File: /path/to/ARCHITECT.md
+# Verificar que el puerto no esté ocupado
+jupyter notebook list
 ```
 
-### Ejecutar agente
+### Problemas con dependencias
+
 ```bash
-$ make agent NAME=architect
-[AGENT_CLI] Executing agent: architect-agent
-[AGENT_CLI] Description: Responsible for system architecture and codebase structure
-[AGENT_CLI] Model: opus
-[AGENT_CLI] Tools: code-search, repo-analyzer, Mermaid
-...
-[AGENT_CLI] Agent ready to execute tasks based on the above configuration.
+# Actualizar pip
+pip install --upgrade pip
+
+# Reinstalar dependencias
+pip install -r requirements.txt --force-reinstall
 ```
+
+---
+
+## 📚 Próximos pasos
+
+1. Explorar los notebooks en `labs/notebooks/`
+2. Revisar la documentación en `docs/`
+3. Familiarizarse con el sistema de agentes
+4. Comenzar a implementar parsers y encoders
+
+---
+
+**Para más información**, consulta [README.md](README.md) o la documentación en `docs/`.

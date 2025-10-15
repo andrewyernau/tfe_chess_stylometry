@@ -122,16 +122,29 @@ class AgentCLI:
         """
         agents = {}
         
-        # Find all .md files in root, excluding README and AGENTS
+        # Search for agent files in docs/agents/ directory
+        agents_dir = self.repo_root / "docs" / "agents"
+        if agents_dir.exists():
+            for md_file in agents_dir.glob("*.md"):
+                if md_file.name.upper() in ["README.MD"]:
+                    continue
+                
+                agent_config = self.parse_agent_file(md_file)
+                if agent_config:
+                    # Use filename without extension as key (e.g., ARCHITECT.md -> architect)
+                    agent_key = md_file.stem.lower()
+                    agents[agent_key] = agent_config
+        
+        # Also check root for backward compatibility
         for md_file in self.repo_root.glob("*.md"):
-            if md_file.name.upper() in ["README.MD", "AGENTS.MD"]:
+            if md_file.name.upper() in ["README.MD", "QUICKSTART.MD", "AGENTS.MD"]:
                 continue
             
             agent_config = self.parse_agent_file(md_file)
             if agent_config:
-                # Use filename without extension as key (e.g., ARCHITECT.md -> architect)
                 agent_key = md_file.stem.lower()
-                agents[agent_key] = agent_config
+                if agent_key not in agents:  # Don't override docs/agents/ files
+                    agents[agent_key] = agent_config
                 
         return agents
     
