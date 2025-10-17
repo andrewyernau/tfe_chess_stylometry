@@ -4,7 +4,7 @@ Mapa visual de la organización del proyecto Chess Stylometry.
 
 ---
 
-## �� Árbol de Directorios
+## Árbol de Directorios
 
 ```
 jupyter/                         # 🏠 Raíz del proyecto
@@ -88,7 +88,7 @@ jupyter/                         # 🏠 Raíz del proyecto
 
 ---
 
-## 🚀 Comandos Rápidos
+## Comandos Rápidos
 
 ```bash
 # Setup inicial
@@ -106,7 +106,7 @@ make agent NAME=architect    # Ejecutar agente
 
 ---
 
-## 📝 Flujo de Trabajo
+## Flujo de Trabajo
 
 ```
 1. Clonar repo
@@ -124,9 +124,9 @@ make agent NAME=architect    # Ejecutar agente
 
 ---
 
-## 🔒 Archivos Ignorados (.gitignore)
+## Archivos Ignorados (.gitignore)
 
-- `jupyter.log` ⚠️ **CRÍTICO: contiene tokens**
+- `jupyter.log`
 - `venv/`, `__pycache__/`
 - `.ipynb_checkpoints/`
 - `labs/models/*.pth` (checkpoints grandes)
@@ -134,7 +134,7 @@ make agent NAME=architect    # Ejecutar agente
 
 ---
 
-## 📦 Dependencias (requirements.txt)
+## Dependencias (requirements.txt)
 
 ```
 python-chess    # Parser PGN
