@@ -1,0 +1,319 @@
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "1"]
+[White "Magem Badals, Jordi"]
+[Black "Agdestein, Simen"]
+[Result "0-1"]
+[ECO "B96"]
+[BlackElo "2380"]
+[PlyCount "48"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 b5 8. e5
+dxe5 9. fxe5 Qc7 10. Qe2 Nfd7 11. O-O-O Bb7 12. Nxe6 fxe6 13. Qh5+ g6 14. Qg4
+Qxe5 15. Bd3 Nc5 16. Rhf1 Be7 17. Bxe7 Kxe7 18. Qh4+ g5 19. Qh6 Rg8 20. Rfe1
+Qf6 21. Qxh7+ Rg7 22. Qh3 Nbd7 23. Rf1 g4 24. Qg3 Qe5 0-1
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "2"]
+[White "Howell, James C"]
+[Black "Magem Badals, Jordi"]
+[Result "1-0"]
+[ECO "D42"]
+[WhiteElo "2285"]
+[PlyCount "113"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. c3 d5 3. exd5 Qxd5 4. d4 e6 5. Nf3 Nc6 6. Bd3 cxd4 7. cxd4 Nf6 8.
+Nc3 Qd8 9. O-O Be7 10. a3 O-O 11. Re1 b6 12. Bc2 Bb7 13. Qd3 Rc8 14. d5 exd5
+15. Bg5 Ne4 16. Nxe4 dxe4 17. Qxe4 g6 18. Bxe7 Qxe7 19. Qxe7 Nxe7 20. Rxe7 Bxf3
+21. Bb3 Bg4 22. Rxa7 Be6 23. Bxe6 fxe6 24. b4 Rc2 25. Rf1 Ra2 26. g3 Rf3 27. a4
+Rb2 28. b5 Ra2 29. Kg2 Rf5 30. Ra6 Kf7 31. h4 h5 32. Kg1 Re5 33. Rc1 Re4 34.
+Rc7+ Kf6 35. Rc8 Ke5 36. Rxb6 Raxa4 37. Rg8 Kf6 38. Rb7 Rab4 39. b6 Rg4 40.
+Rf8+ Ke5 41. Rg8 Kf6 42. Rbb8 Rb1+ 43. Kg2 Rgb4 44. Rbf8+ Ke7 45. Rf3 Rxb6 46.
+Rxg6 R1b5 47. Rg7+ Kd6 48. Rf8 Re5 49. Rd8+ Kc6 50. Rg5 Rbb5 51. Rxe5 Rxe5 52.
+Rg8 Kd5 53. Rg5 Rxg5 54. hxg5 Ke5 55. Kh3 Kf5 56. Kh4 Kg6 57. f4 1-0
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "3"]
+[White "Magem Badals, Jordi"]
+[Black "Smith, Jeff R"]
+[Result "1-0"]
+[ECO "C02"]
+[PlyCount "105"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6 6. a3 c4 7. Nbd2 f6 8. exf6
+Nxf6 9. Be2 Bd6 10. O-O O-O 11. b3 cxb3 12. Rb1 Qc7 13. c4 b6 14. Nxb3 Bd7 15.
+Bb2 Rae8 16. Rc1 Qb8 17. Nbd2 Kh8 18. Bd3 e5 19. cxd5 Nxd4 20. Nxd4 exd4 21. h3
+Bc5 22. Nb3 Qd6 23. Nxd4 Nxd5 24. Nb5 Qf4 25. Qh5 Bf5 26. Bxf5 Qxf5 27. Qxf5
+Rxf5 28. Rxc5 bxc5 29. Nd6 Rff8 30. Nxe8 Rxe8 31. Rc1 Rc8 32. Bd4 c4 33. Bxa7
+Kg8 34. Kf1 Kf7 35. Bd4 g6 36. Ke2 Nf4+ 37. Kf3 Nd3 38. Rc3 Ke6 39. Ke4 Kd6 40.
+Be3 Ke6 41. Kd4 Nb2 42. Rc2 Rb8 43. Bc1 Rd8+ 44. Ke4 Nd3 45. Be3 Ra8 46. Rc3
+Nb2 47. Bd4 Rc8 48. f4 Kd6 49. Rc2 Nd3 50. g4 Re8+ 51. Be5+ Kc5 52. h4 Nf2+ 53.
+Rxf2 1-0
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "4"]
+[White "Grant, Edward"]
+[Black "Magem Badals, Jordi"]
+[Result "0-1"]
+[ECO "B22"]
+[PlyCount "58"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. c3 d5 3. exd5 Qxd5 4. d4 Nc6 5. Nf3 cxd4 6. cxd4 e5 7. Nc3 Bb4 8.
+Bd2 Bxc3 9. Bxc3 e4 10. Ne5 Nxe5 11. dxe5 Ne7 12. Be2 O-O 13. O-O Bd7 14. Bb4
+Rfe8 15. Rc1 Bc6 16. Bd6 Qe6 17. Bc4 Qf5 18. Qb3 Ng6 19. e6 fxe6 20. Rfd1 Rac8
+21. Qe3 a6 22. Bb3 Qf6 23. Bb4 Nf4 24. Bc2 Qg5 25. g3 Nh3+ 26. Kg2 Qg4 27. Rd4
+Ng5 28. Bd1 Qh3+ 29. Kh1 Qf1# 0-1
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "5"]
+[White "Magem Badals, Jordi"]
+[Black "Miljanic, Boro"]
+[Result "1/2-1/2"]
+[ECO "C02"]
+[PlyCount "174"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6 6. a3 c4 7. Nbd2 Na5 8. g3 Bd7
+9. Bh3 h6 10. O-O Ne7 11. Ne1 g6 12. f4 Nf5 13. Qe2 O-O-O 14. Ndf3 Be7 15. g4
+Ng7 16. Bg2 Ba4 17. Be3 Kb8 18. h3 Rc8 19. Bf2 Rc6 20. Bh4 Qd8 21. Bxe7 Qxe7
+22. Rf2 a6 23. Nh2 Ka7 24. Nf1 Rb6 25. Ng3 Rg8 26. Nf3 Bd7 27. Raf1 Qd8 28. Qe3
+Rh8 29. Nh2 Bc8 30. Qf3 h5 31. Rd1 Rb5 32. Ngf1 Qb6 33. Qe2 Bd7 34. Nf3 Nc6 35.
+Ng5 Nd8 36. Ne3 Ne8 37. f5 hxg4 38. hxg4 gxf5 39. gxf5 exf5 40. Nh3 Be6 41. Rd2
+Qc6 42. Nxf5 Qd7 43. Qf3 Rg8 44. Kf1 Nc6 45. Ne3 f6 46. exf6 Nxf6 47. Qxf6 Bxh3
+48. Qf3 Be6 49. Rde2 Ne7 50. Qh5 Nc8 51. Rf6 Rb6 52. Ref2 Qg7 53. Qh6 Rd6 54.
+Qxg7 Rxg7 55. Bxd5 Bxd5 56. Rxd6 Nxd6 57. Nxd5 Ne4 58. Rg2 Rd7 59. Ne3 b5 60.
+Ke2 Rf7 61. Nd5 Rd7 62. Nb4 Kb7 63. Ke3 Nd6 64. Kf4 a5 65. Nd5 Kc6 66. Nf6 Rf7
+67. Rg6 b4 68. a4 Re7 69. Kf3 Rf7 70. Ke2 Re7+ 71. Kd1 Re3 72. Kd2 Rd3+ 73. Ke2
+bxc3 74. bxc3 Kb7 75. Rg7+ Ka8 76. Nd5 Ne4 77. Nb6+ Kb8 78. Nxc4 Rh3 79. Nxa5
+Nxc3+ 80. Kd2 Nxa4 81. Nc6+ Kc8 82. Ra7 Nb6 83. Ne5 Nd5 84. Rf7 Ra3 85. Ke2
+Re3+ 86. Kf2 Re4 87. Nf3 Nc7 1/2-1/2
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "6"]
+[White "Kofidis, Andreas"]
+[Black "Magem Badals, Jordi"]
+[Result "1-0"]
+[ECO "B91"]
+[PlyCount "69"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. g3 e5 7. Nde2 Be7 8. Bg2
+Nbd7 9. O-O b5 10. a4 b4 11. Nd5 Nxd5 12. exd5 O-O 13. Be3 Bg5 14. f4 exf4 15.
+Bxf4 Ne5 16. Qd4 a5 17. Bxg5 Qxg5 18. Nf4 Bd7 19. Nd3 Rfe8 20. Qf2 Qg6 21. Nxe5
+Rxe5 22. c3 bxc3 23. bxc3 Be8 24. Qb6 Qh6 25. Rf4 Qg6 26. Raf1 Qd3 27. Qxd6
+Qxc3 28. Qb6 Rc8 29. d6 Rcc5 30. Qd8 Rc8 31. Qb6 Rcc5 32. Qd8 Rc8 33. Qb6 Rcc5
+34. Qb8 Rc8 35. Qb7 1-0
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "7"]
+[White "Magem Badals, Jordi"]
+[Black "Klinger, Josef"]
+[Result "0-1"]
+[ECO "B96"]
+[PlyCount "88"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 b5 8. e5
+dxe5 9. fxe5 Qc7 10. exf6 Qe5+ 11. Be2 Qxg5 12. O-O Qe5 13. Nf3 Bc5+ 14. Kh1
+Qxf6 15. Ne4 Qe7 16. Ne5 f5 17. Bxb5+ axb5 18. Nxc5 O-O 19. b4 Na6 20. Qf3 Nxc5
+21. Qxa8 Ne4 22. Qa5 Qh4 23. Rf3 Nf2+ 24. Kg1 Qd4 25. c3 Nh3+ 26. Kh1 Qxe5 27.
+Rxh3 Bb7 28. Qb6 Qd5 29. Qf2 f4 30. Qe2 Qf5 31. Kg1 e5 32. Re1 Qg6 33. Qf2 e4
+34. Rf1 Rf7 35. Rd1 h6 36. Kh1 e3 37. Qe2 Qf5 38. Kg1 Rf6 39. Rd8+ Kh7 40. Rf3
+Bxf3 41. Qxf3 Qb1+ 42. Rd1 Qxa2 43. Qe4+ Rg6 44. Rf1 Qd2 0-1
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "8"]
+[White "Wagner, Jean Marc"]
+[Black "Magem Badals, Jordi"]
+[Result "0-1"]
+[ECO "B23"]
+[PlyCount "112"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nc3 e6 3. g3 d5 4. exd5 exd5 5. d3 Be7 6. Bg2 Nf6 7. Nge2 d4 8. Ne4
+Nxe4 9. Bxe4 Nd7 10. O-O O-O 11. Nf4 Nf6 12. Bg2 Rb8 13. Re1 Re8 14. a4 Bf5 15.
+Bd2 Qd7 16. h3 Bd6 17. Kh2 Rxe1 18. Qxe1 g5 19. Nd5 Nxd5 20. Bxd5 Bxh3 21. Bxg5
+Bxg3+ 22. fxg3 Qxd5 23. Kxh3 Qxg5 24. Qe4 Qg6 25. Re1 Qxe4 26. Rxe4 Kf8 27. Re5
+b6 28. Rd5 Re8 29. Rd7 Re7 30. Rd8+ Kg7 31. Ra8 Kf6 32. a5 Ke5 33. axb6 axb6
+34. Rb8 Re6 35. Rb7 Rf6 36. Kg2 h5 37. Rb8 Kd5 38. Rh8 Rf5 39. Rh6 f6 40. Rh8
+Kc6 41. Rf8 b5 42. b3 Kb6 43. Ra8 Rg5 44. Kf3 Rf5+ 45. Ke2 Re5+ 46. Kf1 h4 47.
+gxh4 Rh5 48. Kf2 Rxh4 49. Ra2 Rh2+ 50. Kf3 f5 51. Kf4 c4 52. bxc4 bxc4 53. dxc4
+d3 54. Kxf5 dxc2 55. Ra1 Rd2 56. Rc1 Kc5 0-1
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "9"]
+[White "Magem Badals, Jordi"]
+[Black "Staniszewski, Piotr"]
+[Result "1/2-1/2"]
+[ECO "B80"]
+[PlyCount "43"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Bb5+ Nbd7 7. f4 Qa5 8.
+f5 a6 9. fxe6 fxe6 10. Bc4 e5 11. Ne6 b5 12. Bb3 Nc5 13. Nxf8 Nxb3 14. axb3
+Qxa1 15. O-O Qa5 16. Qxd6 Ra7 17. Ne6 Bxe6 18. Qxe6+ Re7 19. Qc6+ Rd7 20. Qe6+
+Re7 21. Qc6+ Rd7 22. Qe6+ 1/2-1/2
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "10"]
+[White "Landsman, Klaas"]
+[Black "Magem Badals, Jordi"]
+[Result "0-1"]
+[ECO "E91"]
+[PlyCount "100"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. c4 Nf6 2. Nc3 g6 3. e4 d6 4. d4 Bg7 5. Nf3 O-O 6. Be2 Bg4 7. Be3 e5 8. d5
+Bxf3 9. Bxf3 Nfd7 10. h4 Bf6 11. Qd2 Bxh4 12. O-O-O Be7 13. Ne2 c6 14. g4 Na6
+15. Kb1 cxd5 16. cxd5 Re8 17. Ng3 Nac5 18. Rdg1 Bf6 19. Nf5 Nf8 20. Bh6 gxf5
+21. gxf5+ Ng6 22. Bh5 a5 23. f3 Re7 24. Qg2 Qe8 25. Rh3 a4 26. Bg5 Bxg5 27.
+Qxg5 Qb5 28. a3 Qd3+ 29. Ka1 Nb3+ 30. Ka2 Qc4 31. fxg6 Nc1+ 32. Kb1 Qa2+ 33.
+Kc2 Rc7+ 34. Kd1 Qb3+ 35. Ke1 Nd3+ 36. Kf1 Qd1+ 37. Kg2 Rc2+ 38. Kh1 Nf2+ 39.
+Kh2 Nxe4+ 40. Qg2 Rxg2+ 41. Rxg2 hxg6 42. fxe4 Qb1 43. Bf3 Rc8 44. Kg3 Rc2 45.
+Rhh2 Rxg2+ 46. Rxg2 Kg7 47. Re2 f5 48. Kf2 Kf6 49. Kg2 Kg5 50. Kg3 b6 0-1
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "11"]
+[White "Magem Badals, Jordi"]
+[Black "Jonsson, Bjorgvin"]
+[Result "1-0"]
+[ECO "B70"]
+[PlyCount "75"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Bg5 Bg7 7. Bb5+ Bd7 8.
+Qe2 O-O 9. O-O-O a6 10. Bxd7 Nbxd7 11. f4 Qc7 12. Nf3 e5 13. Qd2 Nc5 14. Rhe1
+Ne6 15. Bxf6 Bxf6 16. Nd5 Qd8 17. f5 Nc5 18. g4 Bh4 19. Qh6 Bf6 20. Nxf6+ Qxf6
+21. Rxd6 Qg7 22. Qe3 Rfc8 23. Rd5 Qf8 24. f6 Rc7 25. Red1 Rac8 26. Nxe5 Ne6 27.
+R1d2 h6 28. Rd7 Rxd7 29. Rxd7 Qb4 30. Nxf7 Qa4 31. Nxh6+ Kh8 32. Rd2 Qxa2 33.
+c3 Qa1+ 34. Kc2 Nc5 35. Nf7+ Kg8 36. Nd6 Na4 37. f7+ Kh7 38. Nxc8 1-0
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "12"]
+[White "Salov, Valery"]
+[Black "Magem Badals, Jordi"]
+[Result "1-0"]
+[ECO "D03"]
+[PlyCount "75"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. d4 Nf6 2. Nf3 g6 3. Bg5 Bg7 4. Nbd2 d5 5. e3 O-O 6. Bd3 c5 7. c3 Qb6 8. Rb1
+Nc6 9. O-O e5 10. dxc5 Qxc5 11. b4 Qd6 12. Bc2 Be6 13. Qe2 Rac8 14. Bb3 e4 15.
+Nd4 Ne5 16. Rfd1 Bg4 17. f3 exf3 18. gxf3 Bh5 19. Qg2 h6 20. Bf4 Qe7 21. Nf1
+Rxc3 22. Ng3 Re8 23. Ba4 Nc6 24. Ngf5 Qd8 25. Nxg7 Kxg7 26. Nf5+ Kh7 27. Nxh6
+Rcxe3 28. Bxe3 Rxe3 29. Nxf7 Qb6 30. Kh1 Nd4 31. Rf1 Re2 32. Qg3 Qa6 33. Bb3
+Nxb3 34. axb3 Qa2 35. Rbc1 Re7 36. Ng5+ Kh6 37. Qf4 Kg7 38. Rce1 1-0
+
+[Event "EU-ch U20"]
+[Site "Groningen"]
+[Date "1983.??.??"]
+[Round "13"]
+[White "Van der Waeren, Serge"]
+[Black "Magem Badals, Jordi"]
+[Result "0-1"]
+[ECO "A58"]
+[PlyCount "109"]
+[EventDate "1983.??.??"]
+[EventType "swiss"]
+[EventRounds "13"]
+[EventCountry "NED"]
+[Source "ChessBase"]
+[SourceDate "1999.11.16"]
+
+1. d4 Nf6 2. c4 c5 3. d5 b5 4. cxb5 a6 5. bxa6 Bxa6 6. Nc3 d6 7. g3 g6 8. Bg2
+Bg7 9. Nf3 O-O 10. O-O Nbd7 11. Qc2 Qb6 12. Rb1 Bc4 13. Nd2 Ba6 14. b3 Rfb8 15.
+Bb2 Qc7 16. Ba1 Nb6 17. Rfd1 Nfd7 18. Nf3 Ne5 19. Nxe5 Bxe5 20. e4 Nd7 21. Bf1
+Qa5 22. Bxa6 Qxa6 23. f4 Bd4+ 24. Kh1 Nf6 25. Ne2 Qxa2 26. Nxd4 cxd4 27. Qxa2
+Rxa2 28. Bxd4 Nxe4 29. b4 Nd2 30. Rb2 Rxb2 31. Bxb2 Nc4 32. Bc3 Rb5 33. Ra1 f6
+34. Ra8+ Kf7 35. Rh8 Kg7 36. Re8 Kf7 37. Rh8 Rxd5 38. Rxh7+ Ke6 39. Kg2 Ne3+
+40. Kf3 Rd3 41. Be1 d5 42. Ke2 Rb3 43. Bf2 d4 44. Rg7 Nc2 45. g4 d3+ 46. Kd1
+Nxb4 47. Bc5 Nc6 48. h4 Rb5 49. Ba3 Ra5 50. Bb2 Ra2 51. Bc3 Rc2 52. Bd2 Nd4 53.
+Rxg6 Nb3 54. Be3 Ra2 55. f5+ 0-1
+
