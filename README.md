@@ -23,8 +23,9 @@ Basado en papers de investigación (ver `docs/`), exploramos múltiples codifica
 ## 🎯 Objetivos
 
 - [x] Diseñar pipeline de procesamiento PGN
-- [ ] Implementar múltiples codificaciones visuales
-- [ ] Entrenar y evaluar modelos CNN
+- [x] Implementar múltiples codificaciones visuales
+- [x] Entrenar y evaluar modelos CNN (Siamese Network)
+- [x] **NUEVO v2.0:** Implementar CNN dual-channel con mapas de calor temporales
 - [ ] Comparar diferentes representaciones
 - [ ] Analizar interpretabilidad de patrones aprendidos
 
@@ -59,7 +60,39 @@ jupyter/
 
 ---
 
-## 🚀 Inicio Rápido
+---
+
+## ✨ NUEVO: Estilometría Conductual v2.0
+
+**Sistema completo de CNN dual-channel para análisis estilométrico temporal de ajedrez**
+
+### Características Principales
+- 🔍 **Extracción eficiente** de partidas desde archivos PGN masivos (188GB)
+- 🎨 **Mapas de calor** de tiempos de decisión por movimiento
+- 🧠 **CNN dual-channel** con ResNet50 pre-entrenado
+- ⚡ **Pipeline automatizado** de 3 fases
+- 📊 **Validación automática** con métricas de aprendizaje
+
+### Inicio Rápido v2.0
+
+```bash
+cd labs
+
+# Procesar datos y generar imágenes
+python pipeline_stylometry.py \
+  --pgn-file dataset/generated/lichess_db.pgn \
+  --players Magnus Hikaru Fabiano \
+  --max-games 50 --timeout 600
+
+# Entrenar CNN dual-channel
+jupyter notebook notebooks/0002_dual_channel_cnn.ipynb
+```
+
+📖 **Documentación completa:** [`labs/QUICK_START.md`](labs/QUICK_START.md)
+
+---
+
+## 🚀 Inicio Rápido (Sistema Base)
 
 ### 1. Instalación
 

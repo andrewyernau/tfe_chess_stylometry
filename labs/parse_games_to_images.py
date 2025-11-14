@@ -18,10 +18,11 @@ from pathlib import Path
 from io import StringIO
 import argparse
 import sys
+import os
 
 
 def board_to_png_array(board: chess.Board, size: int = 400) -> np.ndarray:
-    """Convierte un tablero de ajedrez a array numpy RGB desde SVG.
+    """Convierte un tablero de ajedrez a array numpy en escala de grises desde SVG.
     
     Parameters
     ----------
@@ -33,8 +34,8 @@ def board_to_png_array(board: chess.Board, size: int = 400) -> np.ndarray:
     Returns
     -------
     np.ndarray
-        Array RGB de la imagen del tablero sin leyenda.
-        Shape: (size, size, 3), dtype: uint8
+        Array en escala de grises de la imagen del tablero sin leyenda.
+        Shape: (size, size), dtype: uint8
     """
     if not isinstance(board, chess.Board):
         raise TypeError("[CHESS_CNN] board debe ser una instancia de chess.Board")
@@ -59,10 +60,10 @@ def board_to_png_array(board: chess.Board, size: int = 400) -> np.ndarray:
     png_array = np.frombuffer(png_data, dtype=np.uint8)
     img = cv2.imdecode(png_array, cv2.IMREAD_COLOR)
     
-    # Convertir BGR (OpenCV) a RGB (estándar)
-    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    # Convertir a escala de grises
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
-    return img_rgb
+    return img_gray
 
 
 def extract_board_sequence(
@@ -124,14 +125,14 @@ def overlay_temporal_sequence(
     board_sequence: List[chess.Board],
     compression_factor: int = 2,
     board_size: int = 400,
-    min_intensity: float = 0.3,
-    max_intensity: float = 1.0
+    min_alpha: float = 0.3,
+    max_alpha: float = 1.0
 ) -> np.ndarray:
-    """Superpone secuencia de tableros con intensidad temporal decreciente.
+    """Superpone secuencia de tableros con transparencia decreciente (escala de grises).
     
     Los tableros se superponen con transparencia basada en antigüedad:
-    - Movimiento más reciente (última posición): intensidad máxima (brillante)
-    - Movimiento más antiguo (primera posición): intensidad mínima (oscuro)
+    - Movimiento más reciente (última posición): opaco (alpha=1.0)
+    - Movimiento más antiguo (primera posición): transparente (alpha~0.3)
     
     Parameters
     ----------
@@ -142,16 +143,16 @@ def overlay_temporal_sequence(
         1 = sin compresión, 2 = mitad de tamaño, 4 = cuarto de tamaño, etc.
     board_size : int, optional
         Tamaño del tablero antes de compresión (default: 400).
-    min_intensity : float, optional
-        Intensidad mínima para movimientos antiguos (default: 0.3).
-    max_intensity : float, optional
-        Intensidad máxima para movimientos recientes (default: 1.0).
+    min_alpha : float, optional
+        Transparencia mínima para movimientos antiguos (default: 0.3).
+    max_alpha : float, optional
+        Transparencia máxima para movimientos recientes (default: 1.0).
     
     Returns
     -------
     np.ndarray
-        Imagen RGB con superposición temporal.
-        Shape: (height, width, 3), dtype: uint8
+        Imagen en escala de grises con superposición temporal.
+        Shape: (height, width), dtype: uint8
     """
     if not board_sequence:
         raise ValueError("[CHESS_CNN] board_sequence no puede estar vacía")
@@ -159,44 +160,43 @@ def overlay_temporal_sequence(
     if compression_factor < 1:
         raise ValueError("[CHESS_CNN] compression_factor debe ser >= 1")
     
-    if not (0.0 <= min_intensity <= max_intensity <= 1.0):
+    if not (0.0 <= min_alpha <= max_alpha <= 1.0):
         raise ValueError(
-            "[CHESS_CNN] Intensidades deben cumplir: 0 <= min <= max <= 1"
+            "[CHESS_CNN] Transparencias deben cumplir: 0 <= min <= max <= 1"
         )
     
     num_boards = len(board_sequence)
     
-    # Calcular tamaño comprimido
-    compressed_size = board_size // compression_factor
+    # Calcular tamaño comprimido (fijo a 224x224 como estándar)
+    compressed_size = 224
     
     # Inicializar imagen acumulada (float para precisión)
-    accumulated = np.zeros((compressed_size, compressed_size, 3), dtype=np.float32)
+    accumulated = np.zeros((compressed_size, compressed_size), dtype=np.float32)
     
     # Procesar cada tablero en orden (antiguo → reciente)
     for i, board in enumerate(board_sequence):
-        # Renderizar tablero a PNG
-        img_rgb = board_to_png_array(board, size=board_size)
+        # Renderizar tablero a escala de grises
+        img_gray = board_to_png_array(board, size=board_size)
         
-        # Aplicar compresión si es necesario
-        if compression_factor > 1:
-            img_rgb = cv2.resize(
-                img_rgb,
-                (compressed_size, compressed_size),
-                interpolation=cv2.INTER_AREA
-            )
+        # Redimensionar a tamaño estándar
+        img_resized = cv2.resize(
+            img_gray,
+            (compressed_size, compressed_size),
+            interpolation=cv2.INTER_AREA
+        )
         
-        # Calcular intensidad temporal
-        # i=0 (antiguo) → min_intensity
-        # i=num_boards-1 (reciente) → max_intensity
+        # Calcular alpha (transparencia) temporal
+        # i=0 (antiguo) → min_alpha
+        # i=num_boards-1 (reciente) → max_alpha
         if num_boards > 1:
             progress = i / (num_boards - 1)
         else:
             progress = 1.0
         
-        intensity = min_intensity + (max_intensity - min_intensity) * progress
+        alpha = min_alpha + (max_alpha - min_alpha) * progress
         
-        # Aplicar intensidad y acumular
-        img_weighted = img_rgb.astype(np.float32) * intensity
+        # Aplicar alpha y acumular usando máximo (jugadas más recientes prevalecen)
+        img_weighted = img_resized.astype(np.float32) * alpha
         accumulated = np.maximum(accumulated, img_weighted)
     
     # Convertir de vuelta a uint8
@@ -266,17 +266,15 @@ def process_pgn_file(
                 img = overlay_temporal_sequence(
                     board_sequence,
                     compression_factor=compression_factor,
-                    min_intensity=0.3,
-                    max_intensity=1.0
+                    min_alpha=0.3,
+                    max_alpha=1.0
                 )
                 
-                # Guardar imagen
+                # Guardar imagen (ya está en escala de grises)
                 output_filename = f"{player_name}_game{game_num:02d}.png"
                 output_path = output_dir / output_filename
                 
-                # Convertir RGB a BGR para OpenCV
-                img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-                cv2.imwrite(str(output_path), img_bgr)
+                cv2.imwrite(str(output_path), img)
                 
                 games_processed += 1
                 print(f"✓ {output_filename} ({img.shape[0]}x{img.shape[1]})")
@@ -300,9 +298,11 @@ def main(
     Parameters
     ----------
     pgn_dir : Path
-        Directorio con archivos .pgn
+        Directorio con archivos .pgn (puede ser relativo o absoluto).
+        Si es relativo, se busca desde el directorio actual.
     output_dir : Path
-        Directorio de salida para imágenes
+        Directorio de salida para imágenes (puede ser relativo o absoluto).
+        Si es relativo, se crea desde el directorio actual.
     start_move : int
         Movimiento inicial
     end_move : int
@@ -310,9 +310,32 @@ def main(
     compression_factor : int
         Factor de compresión
     """
+    # Convertir a Path si es necesario
+    pgn_dir = Path(pgn_dir)
+    output_dir = Path(output_dir)
+    
+    # Si la ruta no es absoluta, intentar resolverla desde el directorio actual
+    if not pgn_dir.is_absolute():
+        # Primero intentar desde el directorio actual
+        pgn_dir_abs = Path.cwd() / pgn_dir
+        if not pgn_dir_abs.exists():
+            # Si no existe, intentar desde el directorio del script (labs/)
+            script_dir = Path(__file__).parent
+            pgn_dir_alt = script_dir / pgn_dir
+            if pgn_dir_alt.exists():
+                pgn_dir = pgn_dir_alt
+            else:
+                pgn_dir = pgn_dir_abs  # Usar la primera opción para el mensaje de error
+        else:
+            pgn_dir = pgn_dir_abs
+    
+    # Resolver a ruta absoluta
+    pgn_dir = pgn_dir.resolve()
+    output_dir = output_dir.resolve()
+    
     # Validar parámetros
     if not pgn_dir.exists():
-        raise ValueError(f"Directorio PGN no existe: {pgn_dir}, ruta global: {pgn_dir.resolve()}")
+        raise ValueError(f"Directorio PGN no existe: {pgn_dir}")
     
     if start_move < 1 or end_move < start_move:
         raise ValueError(f"Rango de movimientos inválido: {start_move}-{end_move}")

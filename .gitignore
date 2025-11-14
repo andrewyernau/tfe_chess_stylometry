@@ -1,99 +1,42 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-
-# ============================================================================
-# CRITICAL: SEGURIDAD - Jupyter logs contienen tokens sensibles
-# ============================================================================
-jupyter.log
-*.log
-
-# ============================================================================
-# Python Virtual Environment
-# ============================================================================
-venv/
-env/
-ENV/
-Lib/
-Include/
-Scripts/
-pyvenv.cfg
-pip-selfcheck.json
-
-# ============================================================================
-# Python Cache & Compiled Files
-# ============================================================================
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-
-# ============================================================================
-# Jupyter Notebook
-# ============================================================================
-.ipynb_checkpoints/
-*.ipynb_checkpoints/
-*-checkpoint.ipynb
-
-# ============================================================================
-# Distribution / Packaging
-# ============================================================================
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+dist/
+build/
 
-# ============================================================================
-# Testing & Coverage
-# ============================================================================
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-.nox/
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
 
-# ============================================================================
-# IDEs & Editors
-# ============================================================================
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+
+# OS
 .DS_Store
-*.sublime-*
+Thumbs.db
 
-# ============================================================================
-# Environment Variables
-# ============================================================================
-.env
-.env.local
-.env.*.local
+# Logs
+*.log
+jupyter.log
 
-# ============================================================================
-# Project Specific
-# ============================================================================
-# Generated datasets (pueden ser muy grandes)
-labs/dataset/generated/*.png
-labs/dataset/generated/*.jpg
+# Output files
+labs/output/
+labs/dataset/generated/*.pgn
+labs/dataset/generated/*.db
 
-# Model checkpoints (pueden ser muy grandes)
-labs/models/*.pth
-labs/models/*.h5
-labs/models/*.ckpt
-
-# Output files (temporal)
-labs/output/temp/
-labs/output/*.tmp
+# Temporary files
+*.tmp
+*.temp

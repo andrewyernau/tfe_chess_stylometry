@@ -1,127 +1,121 @@
-# Changelog - Reorganización del Repositorio
+# Changelog - Estilometría Conductual de Ajedrez
 
-Resumen de cambios realizados en la reorganización del proyecto.
+## [2.0.0] - 2025-10-25
 
-**Fecha**: 15 de Octubre, 2025
+### ✨ Nuevas Características
 
----
+#### Sistema de Extracción de Partidas
+- **`extract_player_games.py`**: Extractor eficiente para archivos PGN masivos (188GB+)
+  - Búsqueda por jugador con timeout configurable
+  - Buffer I/O optimizado (64KB)
+  - Procesamiento streaming sin cargar archivo completo
+  - Umbrales mínimo/máximo de partidas por jugador
+  - Progreso en tiempo real cada 10,000 partidas
 
-## ✨ Cambios Principales
+#### Mapas de Calor de Decisión
+- **`generate_decision_heatmaps.py`**: Visualización de tiempos de decisión
+  - Gradiente de colores: frío (rápido) → cálido (lento)
+  - Grid 8x8 para blancas y negras separadamente
+  - Cálculo temporal: |T(n+1) - T(n)| - incremento
+  - Tiempos relativos (%) o absolutos (segundos)
+  - Percentile clipping para normalización
 
-### 🏗️ Reestructuración
+#### Pipeline Integrado
+- **`pipeline_stylometry.py`**: Automatización completa de 3 fases
+  1. Extracción de partidas por jugador
+  2. Generación de imágenes de tablero
+  3. Generación de mapas de calor
+  - Organización automática de datos para CNN
 
-**Sistema de Agentes**
-- ✅ Movido `agents/agent_cli.py` → `agent_cli.py` (raíz)
-- ✅ Movido `agents/agents.py` → `agents.py` (raíz)
-- ✅ Movido documentación de agentes → `docs/agents/`
-- ✅ Eliminada carpeta `agents/` vacía
-- ✅ Actualizado `agent_cli.py` para buscar en `docs/agents/`
+#### CNN Dual-Channel
+- **`notebooks/0002_dual_channel_cnn.ipynb`**: Red Siamese de dos canales
+  - Canal 1: Imágenes de tablero (ResNet50)
+  - Canal 2: Mapas de calor de decisión (ResNet50)
+  - Arquitectura: Embeddings concatenados → combiner → L2 norm
+  - Triplet Loss para aprendizaje métrico
+  - Validación automática con curvas y métricas
 
-**Documentación**
-- ✅ Movido `architecture.md` → `docs/architecture.md`
-- ✅ Eliminado `EJEMPLO_USO.md` (contenido duplicado)
-- ✅ Simplificado y actualizado `README.md`
-- ✅ Actualizado `QUICKSTART.md` con info práctica
-- ✅ Creado `CONTRIBUTING.md` (guía de contribución)
-- ✅ Creado `ESTRUCTURA.md` (mapa del repositorio)
-- ✅ Creado `docs/agents/README.md` (índice de agentes)
+#### Testing y Documentación
+- **`test_stylometry.py`**: Suite de tests automatizados (4 tests, 100% pass)
+- **`README_STYLOMETRY.md`**: Documentación completa del sistema (8KB)
+- **`IMPLEMENTATION_SUMMARY.md`**: Detalles técnicos de implementación (8KB)
+- **`QUICK_START.md`**: Guía de inicio rápido en 3 pasos
+- **`example_usage.sh`**: Script de ejemplos prácticos
 
-### 🧹 Limpieza
+### 🔧 Optimizaciones
 
-- ✅ Eliminados todos los `.ipynb_checkpoints/`
-- ✅ Actualizado `.gitignore` con secciones organizadas
-- ✅ Añadido `jupyter.log` a .gitignore (⚠️ **CRÍTICO**: contiene tokens)
+- Buffer I/O de 64KB para archivos grandes
+- Procesamiento streaming (no carga archivo completo en memoria)
+- Timeout por jugador (evita bloqueos)
+- GPU memory growth habilitado
+- Batch prefetch para eficiencia
+- Garbage collection automático
 
-### 📦 Nuevos Archivos
+### 📊 Formato de Datos
 
-- ✅ `requirements.txt`: Dependencias del proyecto
-- ✅ `CONTRIBUTING.md`: Convenciones de código
-- ✅ `ESTRUCTURA.md`: Mapa del repositorio
-- ✅ `CHANGELOG.md`: Este archivo
-
-### �� Mejoras
-
-**Makefile**
-- ✅ Añadido comando `make jupyter` (iniciar Jupyter)
-- ✅ Añadido comando `make clean` (limpiar temporales)
-- ✅ Añadido comando `make test` (ejecutar tests)
-- ✅ Mejorado `make help` con más información
-
-**Gitignore**
-- ✅ Organizado en secciones claras
-- ✅ Comentarios explicativos
-- ✅ Protección de archivos sensibles destacada
-- ✅ Ignorados checkpoints de modelos grandes
-- ✅ Ignoradas imágenes generadas grandes
-
----
-
-## 📊 Estado Anterior vs Actual
-
-### Antes
+#### Mapas de Calor
 ```
-jupyter/
-├── agents/                    ❌ Carpeta separada
-│   ├── agent_cli.py
-│   ├── agents.py
-│   ├── AGENTS.md
-│   ├── ARCHITECT.md
-│   └── AGENT_CLI.md
-├── architecture.md            ❌ En raíz
-├── EJEMPLO_USO.md            ❌ Duplicado
-├── .ipynb_checkpoints/       ❌ Checkpoints en Git
-└── labs/
+┌─────────────────────┐
+│  BLANCAS (8x8)     │  ← Movimientos impares
+├─────────────────────┤
+│  NEGRAS (8x8)      │  ← Movimientos pares
+└─────────────────────┘
+
+Codificación:
+🔵 Azul = Rápido (< 5%)
+🟢 Verde = Normal (5-15%)
+🟡 Amarillo = Lento (15-30%)
+🔴 Rojo = Muy lento (> 30%)
 ```
 
-### Después
+#### Estructura de Salida
 ```
-jupyter/
-├── docs/                      ✅ Documentación centralizada
-│   ├── agents/               ✅ Agentes organizados
-│   │   ├── README.md
-│   │   ├── AGENTS.md
-│   │   ├── ARCHITECT.md
-│   │   └── AGENT_CLI.md
-│   └── architecture.md       ✅ Con otros docs
-├── agent_cli.py              ✅ En raíz (tool principal)
-├── agents.py                 ✅ En raíz (wrapper)
-├── requirements.txt          ✅ Dependencias claras
-├── CONTRIBUTING.md           ✅ Guía de código
-├── ESTRUCTURA.md             ✅ Mapa visual
-└── labs/                     ✅ Sin checkpoints
+output/
+├── player_pgns/       # PGNs extraídos
+├── board_images/      # Imágenes de tablero
+└── heatmap_images/    # Mapas de calor
 ```
 
----
+### 📈 Métricas de Calidad
 
-## 🎯 Beneficios
+- ✅ Tests: 4/4 pasados (100%)
+- ✅ Compatibilidad: Python 3.10+
+- ✅ GPU: TensorFlow 2.20.0 con CUDA
+- ✅ Documentación: 25KB de docs técnicas
 
-1. **Más Simple**: Estructura clara y lógica
-2. **Mejor Organización**: Documentación centralizada en `docs/`
-3. **Más Seguro**: `.gitignore` protege archivos sensibles
-4. **Más Profesional**: Archivos estándar (requirements.txt, CONTRIBUTING.md)
-5. **Más Mantenible**: Código y docs separados claramente
-6. **Más Limpio**: Sin archivos temporales en Git
+### 🎯 Casos de Uso
 
----
+1. **Identificación de jugador**: ¿Partida de Magnus o Hikaru?
+2. **Análisis temporal**: Patrones de tiempo de decisión
+3. **Detección de anomalías**: Partidas con comportamiento inusual
+4. **Clustering**: Agrupar jugadores por estilo similar
 
-## 🚀 Próximos Pasos
+### 🔄 Compatibilidad
 
-1. Implementar código en `labs/src/`
-2. Crear tests en `labs/tests/`
-3. Añadir más agentes en `docs/agents/`
-4. Desarrollar pipeline de datos
-5. Entrenar modelos
+- Mantiene compatibilidad con sistema base (v1.0)
+- Notebook original `0001_siamese_nn.ipynb` sigue funcionando
+- Scripts legacy no afectados
 
----
+### 📝 Notas de Migración
 
-## 📝 Notas
-
-- El sistema de agentes sigue funcionando igual
-- Todos los notebooks están intactos
-- Los datos en `labs/dataset/` no fueron modificados
-- El archivo `jupyter.log` está protegido en .gitignore
+Para usuarios del sistema v1.0:
+- Los scripts originales siguen disponibles
+- El nuevo sistema es complementario, no reemplaza
+- Puede usarse el pipeline antiguo o el nuevo según necesidad
 
 ---
 
-**Reorganizado por**: Agent System  
-**Fecha**: 15 de Octubre, 2025
+## [1.0.0] - 2025-10-24
+
+### Características Iniciales
+
+- Sistema base de estilometría de ajedrez
+- `parse_games_to_images.py`: Generación de imágenes de tablero
+- `0001_siamese_nn.ipynb`: Red Siamese single-channel
+- Transparencia temporal en imágenes de tablero
+- Procesamiento básico de archivos PGN
+
+---
+
+**Versión actual:** 2.0.0  
+**Última actualización:** 2025-10-25
