@@ -58,8 +58,8 @@ def generate_images_synchronized(
     dict
         Estadísticas de procesamiento
     """
-    # Importar módulos necesarios
-    from parse_games_to_images import (
+    # Import
+    from labs.bak_parse_games_to_images import (
         board_to_png_array,
         extract_board_sequence,
         overlay_temporal_sequence
@@ -145,7 +145,7 @@ def generate_images_synchronized(
                 _cleanup_game_images(output_board, output_heat, game_num)
                 stats['errors'] += 1
                 if verbose:
-                    print(f"  ⚠ Partida {game_num} error: {e}")
+                    print(f" Partida {game_num} error: {e}")
                 continue
             
             # Progreso
@@ -155,7 +155,7 @@ def generate_images_synchronized(
                       f"Saltadas: {stats['games_skipped']}")
     
     if verbose:
-        print(f"\n✓ Procesamiento completado:")
+        print(f"\n Procesamiento completado:")
         print(f"  Partidas procesadas: {stats['games_processed']}")
         print(f"  Tableros creados: {stats['boards_created']}")
         print(f"  Heatmaps creados: {stats['heatmaps_created']}")
@@ -174,7 +174,7 @@ def _generate_boards_for_game(
     compression: int
 ) -> int:
     """
-    Genera UNA SOLA imagen de tablero por partida con transparencia temporal.
+    Genera una imagen de tablero por partida con transparencia temporal.
     
     La imagen muestra:
     - Movimientos antiguos: muy transparentes (apenas visibles)
@@ -185,7 +185,7 @@ def _generate_boards_for_game(
     int
         1 si se creó correctamente, 0 si falló
     """
-    from parse_games_to_images import overlay_temporal_sequence
+    from labs.bak_parse_games_to_images import overlay_temporal_sequence
     
     moves = list(game.mainline_moves())
     
@@ -210,7 +210,7 @@ def _generate_boards_for_game(
         board_size=400
     )
     
-    # Guardar UNA SOLA imagen por partida
+    # Guardar imagen por partida
     output_file = output_dir / f"game_{game_num:04d}.png"
     cv2.imwrite(str(output_file), temporal_img)
     
@@ -346,5 +346,5 @@ if __name__ == '__main__':
         args.relative
     )
     
-    print(f"\n✓ Completado: {stats['boards_created']} tableros, "
+    print(f"\n Completado: {stats['boards_created']} tableros, "
           f"{stats['heatmaps_created']} heatmaps")

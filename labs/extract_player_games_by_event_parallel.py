@@ -302,7 +302,7 @@ class ParallelPlayerExtractorByEvent:
             if max_workers:
                 self.num_workers = min(cpu_count, max_workers_by_ram, max_workers)
             else:
-                # Usar todos los cores si hay RAM suficiente
+                # Usar todos los cores o lo que permita la RAM
                 self.num_workers = min(cpu_count, max_workers_by_ram)
         else:
             self.num_workers = num_workers
@@ -316,15 +316,13 @@ class ParallelPlayerExtractorByEvent:
     def extract_games(self) -> Dict[str, PlayerGameStats]:
         """
         Extrae jugadores y sus partidas del evento especificado.
-        Versión PARALELA optimizada para RAM.
-        
         Returns
         -------
         dict
             Jugadores válidos con sus partidas
         """
         print(f"\n{'='*70}")
-        print(f"EXTRACCIÓN PARALELA POR EVENTO (Optimizado RAM)")
+        print(f"EXTRACCIÓN POR EVENTO")
         print(f"{'='*70}")
         print(f"Evento: {self.event_type}")
         print(f"Objetivo: {self.num_players} jugadores")
@@ -334,12 +332,12 @@ class ParallelPlayerExtractorByEvent:
         
         start_time = time.time()
         
-        # FASE 1: Descubrir jugadores del evento (PARALELO)
-        print("FASE 1: Descubrimiento PARALELO de jugadores...")
+        # FASE 1: Descubrir jugadores del evento
+        print("FASE 1: Descubrimiento de jugadores...")
         self._discover_players_parallel()
         
-        # FASE 2: Extraer partidas (PARALELO)
-        print(f"\nFASE 2: Extracción PARALELA de partidas...")
+        # FASE 2: Extraer partidas
+        print(f"\nFASE 2: Extracción de partidas...")
         self._extract_games_parallel()
         
         # FASE 3: Filtrar por umbral
@@ -404,7 +402,7 @@ class ParallelPlayerExtractorByEvent:
             sample_size = min(len(all_players), self.num_players * 3)
             self.selected_players = set(random.sample(all_players, sample_size))
         
-        print(f"\n✓ Jugadores seleccionados para extracción: {len(self.selected_players)}")
+        print(f"\n Jugadores seleccionados para extracción: {len(self.selected_players)}")
         
         # Inicializar estadísticas
         for player in self.selected_players:
@@ -498,9 +496,9 @@ class ParallelPlayerExtractorByEvent:
                     # Separador entre partidas
                     f.write('\n\n')
             
-            print(f"  ✓ {safe_name}.pgn: {len(stats.games)} partidas")
+            print(f" {safe_name}.pgn: {len(stats.games)} partidas")
         
-        print(f"\n✓ {len(players)} archivos guardados")
+        print(f"\n {len(players)} archivos guardados")
 
 
 if __name__ == '__main__':

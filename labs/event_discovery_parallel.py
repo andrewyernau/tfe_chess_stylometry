@@ -115,8 +115,8 @@ def process_chunk(chunk_info: Tuple, pgn_path: Path, max_games_per_chunk: int = 
     
     games_processed = 0
     
-    # OPTIMIZACIÓN: Procesar por streaming en lugar de cargar todo en memoria
-    # Leer en bloques pequeños (1MB) para evitar saturar RAM
+    # Procesar por streaming
+    # Leer en bloques pequeños (1MB por ejemplo) para evitar saturar RAM
     BUFFER_SIZE = 1024 * 1024  # 1 MB buffer
     
     with open(pgn_path, 'r', encoding='utf-8', errors='ignore', buffering=BUFFER_SIZE) as f:
@@ -183,7 +183,7 @@ def merge_chunk_results(chunk_results: List[Dict]) -> Dict:
     Fusiona resultados de múltiples chunks.
     Optimizado para liberar memoria durante el proceso.
     """
-    # Usar función picklable en lugar de lambda
+    # Usar función picklable
     merged_stats = defaultdict(_create_event_stats_dict)
     
     total_games = 0
@@ -388,7 +388,7 @@ def main():
     
     args = parser.parse_args()
     
-    # Descubrir eventos EN PARALELO con control de RAM
+    # Descubrir eventos
     discovery = ParallelEventDiscovery(
         args.pgn_file, 
         num_workers=args.workers,

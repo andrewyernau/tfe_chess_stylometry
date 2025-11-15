@@ -127,17 +127,16 @@ class ChessStylometryPipelineByEvent:
             valid_players = extractor.extract_games()
             
             if not valid_players:
-                print("❌ No se encontraron jugadores con suficientes partidas")
+                print("No se encontraron jugadores con suficientes partidas")
                 return {}
             
             # Guardar PGNs por jugador
             extractor.save_player_games(self.player_pgns_dir, valid_players)
         
-        # FASE 2: Generación SINCRONIZADA de imágenes
+        # FASE 2: Generación de imágenes
         print(f"{'='*70}")
-        print(f"FASE 2: GENERACIÓN SINCRONIZADA DE IMÁGENES")
+        print(f"FASE 2: GENERACIÓN DE IMÁGENES")
         print(f"{'='*70}")
-        print(f"Sincronización: Garantiza tableros ↔ heatmaps 1:1\n")
         
         board_stats = self._generate_images_parallel(valid_players)
         
@@ -162,7 +161,7 @@ class ChessStylometryPipelineByEvent:
     
     def _generate_images_parallel(self, valid_players: Dict) -> Dict:
         """
-        Genera imágenes en paralelo de forma sincronizada.
+        Genera imágenes en paralelo.
         
         Parameters
         ----------
@@ -218,11 +217,11 @@ class ChessStylometryPipelineByEvent:
             print(f"      Tableros: {stats['boards_created']}")
             print(f"      Heatmaps: {stats['heatmaps_created']}")
             
-            # Verificar sincronización
+            # Verificar
             expected_heats = stats['games_processed']
             actual_heats = stats['heatmaps_created']
             if expected_heats != actual_heats:
-                print(f"      ⚠ Desincronización: esperaba {expected_heats}, "
+                print(f"Desincronización: esperaba {expected_heats}, "
                       f"tiene {actual_heats}")
         
         return board_stats

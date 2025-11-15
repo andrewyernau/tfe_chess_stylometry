@@ -7,7 +7,7 @@ Identificación de jugadores de ajedrez mediante análisis estilométrico usando
 
 ---
 
-## 🎯 Descripción
+## Descripción
 
 Este proyecto investiga **stylometry** (estilometría) aplicada al ajedrez: identificar jugadores por su estilo de juego característico. A diferencia de métodos tradicionales basados en features manuales, utilizamos **representaciones visuales** de partidas como entrada para CNNs.
 
@@ -20,12 +20,12 @@ Basado en papers de investigación (ver `docs/`), exploramos múltiples codifica
 - **Campos vectoriales**: Direcciones y magnitudes de amenazas
 - **Estados de tablero**: Representaciones posicionales secuenciales
 
-## 🎯 Objetivos
+## Objetivos
 
 - [x] Diseñar pipeline de procesamiento PGN
 - [x] Implementar múltiples codificaciones visuales
 - [x] Entrenar y evaluar modelos CNN (Siamese Network)
-- [x] **NUEVO v2.0:** Implementar CNN dual-channel con mapas de calor temporales
+- [x] **NUEVO v2.0:** Implementar CNN dual-channel con mapas de calor temporales y verificar su efectividad
 - [ ] Comparar diferentes representaciones
 - [ ] Analizar interpretabilidad de patrones aprendidos
 

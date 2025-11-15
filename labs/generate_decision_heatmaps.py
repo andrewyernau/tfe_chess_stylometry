@@ -486,10 +486,10 @@ def process_pgn_to_heatmaps(
                 games_processed += 1
                 
                 if games_processed % 10 == 0:
-                    print(f"✓ Procesadas: {games_processed}/{game_num}")
+                    print(f"Procesadas: {games_processed}/{game_num}")
                 
             except Exception as e:
-                print(f"✗ {player_name} game {game_num}: {str(e)}")
+                print(f"{player_name} game {game_num}: {str(e)}")
                 continue
     
     print(f"\n{'='*70}")
@@ -572,7 +572,7 @@ def main():
     args = parser.parse_args()
     
     if not args.pgn_file.exists():
-        print(f"❌ Error: Archivo no encontrado: {args.pgn_file}")
+        print(f"Error: Archivo no encontrado: {args.pgn_file}")
         return 1
     
     process_pgn_to_heatmaps(
