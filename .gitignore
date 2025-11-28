@@ -1,4 +1,4 @@
-# Python
+# Pytho0
 __pycache__/
 *.py[cod]
 *$py.class
@@ -36,7 +36,12 @@ jupyter.log
 labs/output/
 labs/dataset/generated/*.pgn
 labs/dataset/generated/*.db
+labs/dataset/generated/*.zst
+*.png
 
 # Temporary files
 *.tmp
 *.temp
+
+# Models
+*.keras
