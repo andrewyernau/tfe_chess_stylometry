@@ -1,6 +1,0 @@
-name: pytorch_siamese channels: - pytorch - nvidia - conda-forge - defaults
-
-dependencies: - python=3.10 - pip - pytorch=2.4.* - torchvision - torchaudio - pytorch-cuda=12.1 - numpy - scipy - matplotlib - scikit-image - opencv - pillow - tqdm - 
-  cython - ninja - protobuf - tensorboard - pip:
-      - albumentations>=1.4.0 - imgaug>=0.4.0 - imageio - shapely - pycuda - onnx - networkx - pyyaml
-

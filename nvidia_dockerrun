@@ -1,0 +1,1 @@
+docker run --gpus all -it   -v /home/andrew/code/jupyter:/workspace/code   -p 8888:8888   nvcr.io/nvidia/tensorflow:25.02-tf2-py3   bash -c "pip install --upgrade pip && pip install -r /workspace/code/requirements.txt && jupyter lab --ip=0.0.0.0 --no-browser --allow-root --notebook-dir=/workspace/code"

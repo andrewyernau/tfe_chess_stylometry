@@ -13,6 +13,7 @@ build/
 *.ipynb_checkpoints
 
 # Virtual Environment
+.venv/
 venv/
 env/
 ENV/
@@ -33,10 +34,12 @@ Thumbs.db
 jupyter.log
 
 # Output files
-labs/output/
-labs/dataset/generated/*.pgn
-labs/dataset/generated/*.db
-
+dataset/
+output/
+dataset/
+models/
+*.pgn
+*.pgn
 # Temporary files
 *.tmp
 *.temp
