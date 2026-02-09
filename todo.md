@@ -1,0 +1,5 @@
+red siamesa son 2 partes:
+distinguir entre 100 jugadores, escojo x jugadores, los descargo, ancla positivo negativo, ancla positivo negativo... y comparo con el estándar de cada jugador,y elijo el menor. Cojes una partida X de jugador A, partida Y de jugador A, y tratamos de maximizar el resultado. COmo hacemos la inferencia? metemos una nueva partida no usada en el entrenamiento y por otra parte con una referencia media de del jugador n de N jugadores, y probar con cada referencia, me devuelve un numero, es decir la distancia, la partida nueva es de clase K si para ese jugador es la mínima de las observadas. SUpport Set, A. elegir a ojo la referencia o B. usar en Centroide latente, sacar el promedio de los vectores (En vez de GASF comprimir de forma inteligente para seguir mantener los datos [embeddings],) todas imágenes -> a resnet transsferlearning embbeding -> y procesar esas imágenes).
+
+Corregir la red siamesa, porque no estoy gestionando nada bien el ancla izquierdo y ancla derecho.
+Preparar embeddings previamente

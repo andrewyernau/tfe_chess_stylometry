@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  tensorflow-jupyter:
+    build: .
+    container_name: tf_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - /home/andrew/code/jupyter:/workspace/code
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true

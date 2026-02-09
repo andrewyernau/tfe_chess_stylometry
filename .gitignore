@@ -38,7 +38,10 @@ dataset/
 output/
 dataset/
 models/
-*.pgn
+bak/
+testpgns/
+testpgnsright/
+
 *.pgn
 # Temporary files
 *.tmp
