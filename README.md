@@ -1,52 +1,56 @@
 # Chess Stylometry - TFE
 
-**Trabajo de Fin de Estudios - Ingeniería de Telecomunicación**  
-**Universidad Politécnica de Cartagena**
+**Trabajo de Fin de Estudios · Ingeniería de Telecomunicación (UPCT)**
 
-Identificación de jugadores de ajedrez mediante análisis estilométrico usando Redes Neuronales Convolucionales (CNN) y representaciones visuales de partidas.
-
----
-
-## Descripción
-
-Este proyecto investiga **stylometry** (estilometría) aplicada al ajedrez: identificar jugadores por su estilo de juego característico. A diferencia de métodos tradicionales basados en features manuales, utilizamos **representaciones visuales** de partidas como entrada para CNNs.
-
-### Enfoque
-
-Basado en papers de investigación (ver `docs/`), exploramos múltiples codificaciones visuales:
-
-- **Mapas de calor**: Frecuencia de movimientos y zonas de presión
-- **Trayectorias temporales**: Flujo de piezas durante la partida  
-- **Campos vectoriales**: Direcciones y magnitudes de amenazas
-- **Estados de tablero**: Representaciones posicionales secuenciales
+Identificación de jugadores de ajedrez mediante estilometría visual y aprendizaje métrico.
 
 ---
 
-## Inicio Rápido
+## Estado actual (Notebook 104)
 
-```bash
-cd labs
+El flujo principal está en **`labs/notebooks/104_chess_siamese_robust.ipynb`**.
 
-# Procesar datos y generar imágenes
-python pipeline_stylometry.py \
-  --pgn-file dataset/generated/lichess_db.pgn \
-  --max-games 50 --timeout 600
+Este notebook corrige los problemas observados en versiones previas:
 
-# Entrenar CNN
-jupyter notebook
-```
-### Exporting embeddings
+- señal centrada en el **jugador objetivo** (no mezcla indiscriminada de jugadas del rival),
+- normalización de perspectiva por color (alineación white/black),
+- preprocesado correcto para ResNet50,
+- entrenamiento métrico estable con **batch-hard triplet + CE auxiliar**,
+- validación hold-out estricta con métricas interpretables (Top-1/Top-3 por centroide, kNN, margen intra/inter).
 
-Once the board and heatmap PNGs exist under `labs/events/<event_name>`, run:
+---
+
+## Estructura relevante
+
+- `labs/notebooks/104_chess_siamese_robust.ipynb`: pipeline completo train/val/hold-out + evaluación.
+- `labs/notebooks/103_chess_siamese_copy.ipynb`: versión anterior (referencia histórica).
+- `labs/src/`: utilidades de extracción/procesado de datos e imágenes.
+- `main.py`: CLI para exportación de embeddings (`generate-embeddings`).
+
+---
+
+## Ejecución recomendada
+
+1. Montar dataset comprimido en `/pgn_data` con `index.db` y `players/*.pgn.zst`.
+2. Abrir Jupyter y ejecutar `104_chess_siamese_robust.ipynb` por celdas.
+3. Revisar métricas hold-out finales y matriz de confusión antes de comparar benchmarks.
+
+> El entrenamiento está configurado para corridas largas (hasta 2000 épocas) con early stopping tardío, pensado para análisis serio de convergencia.
+
+---
+
+## Exportación rápida de embeddings (CLI)
+
+Cuando ya existen PNGs de tablero + heatmap:
 
 ```bash
 python main.py generate-embeddings \
-  --event-dir labs/events/My_Event \
+  --event-dir labs/events/<event_name> \
   --device cpu \
   --weights imagenet
 ```
 
-This command stores one `.npy` vector per game, computes per-player centroids, and writes a manifest alongside the generated embeddings.
+Esto exporta vectores `.npy` por partida, centroides por jugador y `manifest.json`.
 
 ---
 
@@ -54,10 +58,4 @@ This command stores one `.npy` vector per game, computes per-player centroids, a
 
 **André Yermak Naumenko**  
 Universidad Politécnica de Cartagena  
-Grado en Ingeniería Telemática  
 Año 2026
-
----
-
-**Última actualización**: Febrero 2026
-
