@@ -1,0 +1,28 @@
+Epoch 1  → intra=0.1130  inter=0.1186  gap=0.0055
+Último   → intra=0.4846  inter=0.5479  gap=0.0633
+Mejora del gap: +0.0578 (+1044.6%)
+
+
+set	count	mean	median	min	max
+0	intra-player	4004	0.137177	0.125851	0.048775	0.398648
+1	inter-player	37324	0.150381	0.137940	0.045412	0.501922
+
+ANÁLISIS DE SEPARABILIDAD DEL MODELO
+
+================================================================================
+
+1  SEPARATION RATIO: 0.9122
+   mean(intra) / mean(inter) = 0.137177 / 0.150381
+      MALO: sin separación real
+
+2  SOLAPAMIENTO: 40.4%
+   Max intra: 0.398648 | Min inter: 0.045412
+
+3  MARGEN EFECTIVO: 0.013205
+   Margen configurado: 0.1
+
+================================================================================
+
+
+
+

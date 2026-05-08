@@ -37,6 +37,17 @@ Este notebook corrige los problemas observados en versiones previas:
 
 > El entrenamiento está configurado para corridas largas (hasta 2000 épocas) con early stopping tardío, pensado para análisis serio de convergencia.
 
+### Persistencia y reanudación de entrenamiento (Notebook 110)
+
+En `labs/notebooks/110_chess_siamese.ipynb` se guarda estado de entrenamiento en:
+
+- `labs/notebooks/output/events/<event_name>/training_state/history.csv`
+- `labs/notebooks/output/events/<event_name>/training_state/checkpoints/metric_trainer_last.weights.h5`
+- `labs/notebooks/output/events/<event_name>/training_state/checkpoints/metric_trainer_best.weights.h5`
+- `labs/notebooks/output/events/<event_name>/training_state/backup/`
+
+Si se cierra navegador, kernel o contenedor, al volver a ejecutar la celda de entrenamiento el notebook intenta reanudar automáticamente desde `backup/` (y, si no existe backup, desde `metric_trainer_last.weights.h5`).
+
 ---
 
 ## Exportación rápida de embeddings (CLI)
