@@ -11,6 +11,9 @@ services:
       - .:/workspace/code
       - /mnt/d/pgn_output:/pgn_data:ro
 
+    environment:
+      RUN_RESCUE_MEMORY_SIZE_EXPERIMENT: "False"
+
     deploy:
       resources:
         reservations:

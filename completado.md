@@ -92,22 +92,9 @@
 
 ---
 
-### **9. (Espacio reservado en el TODO)**
-**Estado:** No hay tarea definida en el punto 9 del todo.md
-
----
-
-### **10. Corregir gestión de anclas (izquierdo y derecho)**
-**Archivo:** `labs/notebooks/100_chess_siamese.ipynb`
-- **Línea 1140-1142:** Las 3 ramas (anchor, positive, negative) comparten el mismo modelo de embedding
-- **Línea 1145:** `distance_layer` calcula correctamente distancias entre anchor-positive y anchor-negative
-- **Línea 886-889:** `DistanceLayer` implementa correctamente las distancias euclidianas al cuadrado
-- **Línea 711-721:** `TripletFactory` genera correctamente anchor (jugador A), positive (jugador A), negative (jugador B ≠ A)
-
-**Validación:**
-- Anchor y positive son del mismo jugador (línea 715)
-- Negative es de un jugador diferente (línea 716-720)
-- Las distancias se calculan correctamente (línea 887-888)
+### **9. (Espacio reservado para TODOS)**
+**Estado:** Actualmente hay una tarea.
+- **Diagrama:** Actualizar el diagrama proporcionado por Matencio siendo más claro con el uso de la red Siamesa.
 
 ---
 
@@ -128,26 +115,6 @@
 - **Línea 218-223:** Método `_save_vector()` que guarda embeddings en formato .npy
 
 ---
-
-## 📊 Resumen de Implementación
-
-| Punto | Tarea | Estado | Ubicación Principal |
-|-------|-------|--------|---------------------|
-| 1 | Red Siamesa (2 partes) | ✅ Completado | `100_chess_siamese.ipynb` L886-918, L1140-1145 |
-| 2 | 100 jugadores | ✅ Completado | `100_chess_siamese.ipynb` L122, L314, L402-403 |
-| 3 | Ancla-Positivo-Negativo | ✅ Completado | `100_chess_siamese.ipynb` L695-738, L818-819 |
-| 4 | Inferencia | ✅ Completado | `100_chess_siamese.ipynb` L1253-1259 + `embedding_exporter.py` L155-204 |
-| 5 | Partida nueva vs N referencias | ✅ Completado | `100_chess_siamese.ipynb` L1301-1340 + `embedding_exporter.py` L226-250 |
-| 6 | Distancia mínima | ✅ Completado | `100_chess_siamese.ipynb` L1255-1259 |
-| 7 | Support Set (A/B) | ✅ Completado | `100_chess_siamese.ipynb` L132, L353-354 (A), L1316-1323 (B) + `embedding_exporter.py` L240-244 |
-| 8 | ResNet Transfer Learning | ✅ Completado | `100_chess_siamese.ipynb` L836-851 + `embedding_exporter.py` L107-135 |
-| 9 | (No definido) | ⚠️ N/A | - |
-| 10 | Corregir anclas | ✅ Completado | `100_chess_siamese.ipynb` L1140-1145, L886-889, L711-721 |
-| 11 | Embeddings pre-calculados | ✅ Completado | `100_chess_siamese.ipynb` L1301-1340 + `embedding_exporter.py` L155-223 |
-
----
-
-## 🔍 Notas Técnicas
 
 ### Arquitectura del Modelo
 - **Base:** ResNet50 (ImageNet) congelado para tableros + CNN custom para heatmaps
